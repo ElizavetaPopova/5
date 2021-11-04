@@ -1,12 +1,11 @@
-class Solution(object):
-    def findMedianSortedArrays(self, nums1, nums2):
-        a=nums1+nums2
-        a.sort()
-        n=len(a)
-        if len(a)==0 or len(a)==1:
-            return a[0]
-        if n%2!=0:
-            s=(n/2)
-            return a[s]
-        else:
-            return (a[n/2]+a[(n/2)-1])/2.0
+def mediana(nums1, nums2):
+    arr = nums1 + nums2                                # Объединяет 2 массива
+    arr.sort()                                         # Сортирует 2 массива
+    n = len(arr)                                       # Получаем длинну массива
+    if n % 2 == 0:                                     # Если длина делится на 2, то
+        mediana = (arr[n // 2 - 1] + arr[n // 2]) / 2  # Берёт средние 2 значения, складывает и выводит среднее
+    else:                                              # Иначе
+        mediana = arr[n//2]                            # Берёт среднее значение и выводит его
+    return mediana                                     # Возвращает медиану
+
+print(format(mediana([2], []), '.5f'))                 # Передаём в функцию 2 массива, форматируем до 5 знаков после точки и выводим
